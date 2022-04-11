@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About</title>
+        <link rel="icon" href="static/tobacco.png">
+        <link rel="stylesheet" type="text/css"
+        href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    {% block content %}
+    <body>
+        <h1 class="other">{% block title %} Mixing nicotine and ejuice {% endblock %}</h1>
+        <p>
+            <ul class="list-group">
+                <li class="list-group-item">Nicotine is a poison and must be treated with care, especially in high concentrations</li>
+                <li class="list-group-item">Always wear gloves when handling nicotine, 100mg/ml is a high concentration and can absorb through the skin very quickly if spilt, resulting in the equivalent of hundreds or thousands of cigarettes worth of nicotine being absorbed in a very short amount of time</li>
+                <li class="list-group-item">Avoid getting near the eyes and mouth</li>
+                <li class="list-group-item">Always use measuring syringes to ensure the correct amount is added</li>
+                <li class="list-group-item">Always mix into a bottle that you know the volume of to ensure accuracy when adding nicotine. Don't ever mix nicotine directly into your tank/pod, doing so can result in a dangerously high strength</li>
+                <li class="list-group-item">Always store where children cannot access it, preferably locked away. Nicotine base is a poison and can be lethal if ingested</li>
+            </ul>
+        </p>
+    </body>
+    {% endblock %}

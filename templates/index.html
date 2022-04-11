@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Juicer</title>
+        <link rel="icon" href="static/tobacco.png">
+        <link rel="stylesheet" type="text/css"
+        href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    {% block content %}
+    <body>        
+        <h1>{% block title %} Juicer - nicotine mixing calculator {% endblock %}</h1>
+        <form method="post" action="{{ url_for('operation_result') }}" id="calculator_form">
+            <br/>
+            <div class="form-group row">
+                <label for="input1" class="col-sm-3 col-form-label">Bottle size (ml): </label>
+                <div class="col-sm-2">
+                    <input type="text" name="Input1" class="form-control" id="Input1">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Input2" class="col-sm-3 col-form-label">Current nicotine base (mg): </label>
+                <div class="col-sm-2">
+                    <input type="text" name="Input2" class="form-control" id="Input2">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Input3" class="col-sm-3 col-form-label">Nicotine base used (mg): </label>
+                <div class="col-sm-2">
+                    <input type="text" name="Input3" class="form-control" id="Input3">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Input4" class="col-sm-3 col-form-label">Target nicotine strength (mg): </label>
+                <div class="col-sm-2">
+                    <input type="text" name="Input4" class="form-control" id="Input4">
+                </div>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </form>
+        {% if calculation_success == True %}
+           <br/>
+           <div class="card">
+            <div class="card-body">
+                <p>The calculation for <br>
+                    {{input1}}ml bottle <br>
+                    {{input2}}mg current nicotine strength <br>
+                    {{input3}}mg nicotine base strength <br>
+                    {{input4}}mg target nicotine strength <br>
+                    is: <b>{{result}} ml</b><br/>
+            </div>
+          </div>
+             <div class="alert alert-success" role="alert">
+                Add <b>{{result}} ml</b> of your nicotine base strength to the bottle
+            </p>
+             </div>
+             <br/>
+        {% endif %} 
+        {% if calculation_success == False %}
+         <br/>
+         <p>{{error}}</p>
+         <div class="alert alert-danger" role="alert">
+            {{input1}} {{input2}} {{input3}} {{input4}} = "{{result}}"
+          </div>
+        {% endif %} 
+    </body>
+    {% endblock %}
+</html>
