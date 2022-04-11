@@ -2,15 +2,15 @@
 import os
 from flask import Flask, render_template, request
 
-Flask_App = Flask(__name__)
+app = Flask(__name__)
 
-@Flask_App.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     """ Display the index page at '/' """
 
     return render_template('index.html')
 
-@Flask_App.route('/operation_result/', methods=['POST'])
+@app.route('/operation_result/', methods=['POST'])
 def operation_result():
     """ Route where to send calculator form input """
 
@@ -65,11 +65,11 @@ def operation_result():
             error="Cannot perform calculation based on input, please check your input"            
         )
 
-@Flask_App.route('/other_page/', methods=['GET'])
+@app.route('/other_page/', methods=['GET'])
 def other_page():
     """ Display the other_page at '/other_page' """
 
     return render_template('other_page.html')
 
 if __name__ == '__main__':
-    Flask_App.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
