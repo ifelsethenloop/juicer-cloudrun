@@ -5,3 +5,10 @@ README.md
 *.pyd
 __pycache__
 .pytest_cache
+
+# Firebase
+.firebase
+.firebaserc/
+.firebase/
+public/
+
