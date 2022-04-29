@@ -8,6 +8,16 @@
         <link rel="icon" href="static/tobacco.png">
         <link rel="stylesheet" type="text/css"
         href="{{ url_for('static', filename='style.css') }}"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VHSPG43EZN"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-VHSPG43EZN');
+        </script>
     </head>
     {% block content %}
     <body>
